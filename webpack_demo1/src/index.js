@@ -1,5 +1,5 @@
 import avait from './scence.jpg';
-import './avait.css'
+import './avait.scss'
 const img = new Image();
 
 console.log(avait);
