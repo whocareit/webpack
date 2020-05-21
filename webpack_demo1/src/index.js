@@ -1,9 +1,10 @@
 import avait from './scence.jpg';
-import './avait.scss'
-const img = new Image();
+import style from './avait.scss';
+import createAvitor from './avait';
 
-console.log(avait);
+createAvitor();
+const img = new Image();
 img.src = avait;
-img.classList.add('await')
+img.classList.add(style.await);
 
 document.getElementById('root').append(img);
