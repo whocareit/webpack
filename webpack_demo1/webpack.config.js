@@ -24,13 +24,18 @@ module.exports = {
                  'style-loader',
                  {
                      loader: 'css-loader',
-                     options: {
-                        importLoaders: 2,
-                        modules: true
-                     }
+                    //  options: {
+                    //     importLoaders: 2,
+                    //     modules: true
+                    //  }
                  },
                  'sass-loader'
                 ]
+            },{
+                test: /\.(eot|ttf|woff|woff2)$/,
+                use:{
+                    loader: 'file-loader'
+                }
             }
         ]
     },

@@ -1,6 +1,7 @@
 ## loader的含义
 loader翻译模板，对于webpack而言在没有配置时，默认打包的只能是js文件，如果想要去打包其他的文件形式，就需要在webpack.config.js文件中去配置。
 ## file-loader和url-loader
+file-loader能够打包字体静态资源文件
 作用：能够打包静态文件，如图片文件打包，使用url-loader能够打包所有file-loader打包的静态文件
 区别：url-loader比file-loader多了一个limit配置参数，如果打包的静态文件大于这个配置参数，就会将其打包到一个文件夹中，如果小于配置参数的容量就会被打包到生成的js文件当中
 ## style-loader和css-loader
