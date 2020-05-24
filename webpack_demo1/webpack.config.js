@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     mode: "production",
     entry: {
-        mian: "./src/index.js"
+        main: "./src/index.js"
     },
     module: {
         rules: [
