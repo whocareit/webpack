@@ -3,6 +3,12 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 
 
+// "plugins": [["@babel/plugin-transform-runtime",{
+//     "corejs": 2,
+//     "helpers": true,
+//     "regenerator": true,
+//     "useESModules": false
+// }]]
 // presets: [['@babel/preset-env',{
 //     targets: {
 //         chrome: "67"

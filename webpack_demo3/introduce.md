@@ -22,5 +22,10 @@
 1. 在根目录下去创建.babelrc文件夹
 2. 将options的文件夹中的配置内容放入到该文件中，并采用json的配置
 3. 删除掉optios文件夹即可
+## 使用react代码如何实现打包
+1. 首先安装react与react-dom的依赖包
+2. 其次是安装@babel/preset-react,用于去解析jsx语法
+3. 在babelrc中配置参数，增加@babel/preset-react依赖包
+
 
 
