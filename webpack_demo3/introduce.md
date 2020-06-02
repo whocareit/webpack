@@ -32,7 +32,14 @@
 * 注意： Tree Shaking只支持ES module的引入原因是因为ES Module这种方式的底层是一种静态方式的引入方法
 * 具体配置方式
 1. Tree shaking这种方式，只对于production这种模式起作用，如果在development模式下配置的话，Tree Saking打包的内容，还是会存在所有的Api，只是不同点在于，其做了个区分
-2. 在webpack.config.js文件中新增一个optimization: { usedExports: ture}的配置项，并且更改模式
+2. 在webpack.config.js文件中新增一个optimization: { usedExports: ture}的配置项，并且更改模式,这里需要注意的一点就是在线上打包的时候可以不要optimization这个配置参数
 3. 在packpage.json文件中，新增sideEffects配置项，该配置项表示什么文件使用Tree Shaking,如果该属性值为false则表示，所有的文件都需要设置Tree Shaking, 如果该属性值为["*.css"]文件，则表示所有的css文件都不适用Tree Shaking这种形式
+## development和production模式下，进行打包之间的差异
+1. 打包后生成的文件不一样，在development模式下，打包生成的是没有压缩的文件，在production模式下，打包生成的是压缩文件，两者在性能优化上有差异
+2. 存在配置上的差异，如在development模式下打包，使用devServer来启动一个本地服务器，而在production模式下就不需要配置devServer，两种之间还存在devtool之间的配置差异等内容
+### 针对不同的环境下用不同得配置文件，实现按需打包
+1. 对于开发环境下，可以将开发文件夹下webapck.config.js文件重新的给分离出来，重新命名打包的配置文件，然后在package文件夹中，配置"dev": "webpack-dev-server --config 配置文件名"。对于线上打包的情况，可以使用
+"pro": "webpack --config 线上webpack的配置文件"
+2. 合并文件夹，对于两个配置文件的公共部分，可以将其分离出来，然后再使用第三方库，进行文件合并，然后进行各自的打包，需要使用的第三方库为webpack-merges
 
 

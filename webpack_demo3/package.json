@@ -5,8 +5,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server",
-    "bundle": "webpack"
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "bundle": "webpack --config webpack.prd.js"
   },
   "keywords": [],
   "author": "liuhu",
@@ -30,6 +30,7 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
   }
 }
