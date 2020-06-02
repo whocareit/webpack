@@ -12,6 +12,7 @@
 1. 安装@babel/polyfill与@babel/preset-env这两个依赖
 2. 在optios中配置presets参数，其参数值为 [['@babel/preset-env',{ targets: {chrome: "67"}useBuiltIns: 'usage'}]]
 3. 最后在需要转义的js文件中全局引入@babel/polyfill，具体为import '@babel/polyfill'
+4. 注意：当在preset-env下设置了useBuiltIns时，是可以不用在js中引入import '@babel/polyfill的'
 ## @babel/plugin-transform-runtime
 该插件的作用与polyfill的作用类似，但其弥补了polyfill的缺点，当遇到类库或者是组件库的开发时，就可以使用这种方式来对项目进行开发，具体的使用方式如下：
 1. 首先安装@babel/plugin-transform-runtime和@babel/runtime两个库
@@ -26,6 +27,12 @@
 1. 首先安装react与react-dom的依赖包
 2. 其次是安装@babel/preset-react,用于去解析jsx语法
 3. 在babelrc中配置参数，增加@babel/preset-react依赖包
-
+## Tree Shaking使用
+* 作用： 实现按需打包的效果，即无论你引入的文件本身含有的api有多少，但是在打包的时候，只打包你使用的api，这就是tree Shaking的作用
+* 注意： Tree Shaking只支持ES module的引入原因是因为ES Module这种方式的底层是一种静态方式的引入方法
+* 具体配置方式
+1. Tree shaking这种方式，只对于production这种模式起作用，如果在development模式下配置的话，Tree Saking打包的内容，还是会存在所有的Api，只是不同点在于，其做了个区分
+2. 在webpack.config.js文件中新增一个optimization: { usedExports: ture}的配置项，并且更改模式
+3. 在packpage.json文件中，新增sideEffects配置项，该配置项表示什么文件使用Tree Shaking,如果该属性值为false则表示，所有的文件都需要设置Tree Shaking, 如果该属性值为["*.css"]文件，则表示所有的css文件都不适用Tree Shaking这种形式
 
 

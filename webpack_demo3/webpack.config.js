@@ -17,8 +17,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // }]]
 
 module.exports = {
-    mode: 'development',
-    devtool: 'cheap-module-eval-source-map',
+    // mode: 'development',
+    mode: 'production',
+    // devtool: 'cheap-module-eval-source-map',
+    devtool: 'cheap-module-source-map',
     entry: {
         main: './src/index.js'
     },
@@ -43,6 +45,9 @@ module.exports = {
             template: 'src/index.html'
         })
     ],
+    optimization: {
+        usedExports: true
+    },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist/')
